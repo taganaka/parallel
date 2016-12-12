@@ -18,3 +18,7 @@ $ parallel cmds.txt
 ```
 
 Where cmds.txt is a text file containing on each line a command that will be executed in parallel.
+
+## License
+
+parallel is available as open source program under the terms of the [MIT License](http://opensource.org/licenses/MIT).
