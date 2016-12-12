@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -pedantic -std=c99 -O2
+CFLAGS=-Wall -pedantic -O2
 CLIBS=
 OUT=parallel
 OBJS=parallel.o
