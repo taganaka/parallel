@@ -105,17 +105,21 @@ int main(const int argc, const char **argv){
       sleep(1);
     }
   }
-
+  bool all_good = true;
   for (size_t i = 0; i < number_of_commands; i++){
     int status;
     waitpid(q[i]->pid, &status, 0);
-    if (!WIFEXITED(status) || WEXITSTATUS(status) != 0)
+
+    if (!WIFEXITED(status) || WEXITSTATUS(status) != 0){
       fprintf(stderr, "Command [%s] with PID %d ret status != 0, exit status: %d\n", q[i]->command, q[i]->pid, WEXITSTATUS(status));
+      all_good = false;
+    }
+
     free(q[i]->command);
     free(q[i]);
   }
 
   free(q);
   munmap(running_proc, sizeof *running_proc);
-  return EXIT_SUCCESS;
+  return all_good ? EXIT_SUCCESS : EXIT_FAILURE;
 }
