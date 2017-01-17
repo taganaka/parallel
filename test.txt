@@ -16,4 +16,5 @@ sleep 1; echo 15
 sleep 1; echo 16
 sleep 1; echo 17
 sleep 1; echo 18
+sleep 20; echo 18
 exit 1
